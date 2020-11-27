@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { DrawArea } from "./components/drawArea/DrawArea";
+import "./App.css";
+import { Container, Row } from "react-bootstrap";
+import { Predictions } from "./components/predictions/Predictions";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [predArr, setPredArr] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Container>
+        <Row>
+          <h1>Handwritten Digits Classifier</h1>
+        </Row>
+        <Row>
+          <h5>Check out my linkedin</h5>
+        </Row>
+
+        <DrawArea setPredArr={setPredArr} />
+
+        <Predictions predArr={predArr} />
+      </Container>
     </div>
   );
-}
+};
 
 export default App;
