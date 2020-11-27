@@ -13,8 +13,14 @@ const App = () => {
         <Row>
           <h1>Handwritten Digits Classifier</h1>
         </Row>
+
         <Row>
-          <h5>Check out my linkedin</h5>
+          <h5>
+            Check out my{" "}
+            <a href="https://www.linkedin.com/in/nathancheung22/" target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+          </h5>
         </Row>
 
         <DrawArea setPredArr={setPredArr} />
