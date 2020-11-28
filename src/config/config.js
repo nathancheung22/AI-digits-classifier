@@ -1,6 +1,12 @@
 import * as tf from "@tensorflow/tfjs";
 import * as myModel from "./model";
 
+// loads new model from express server
+// tf.loadLayersModel("http://localhost:5000/model").then((model) => {
+//   model.save("localstorage://tfModel");
+// });
+
+// loads model from myModel to localStorage
 const loadModelIfNotPresent = () => {
   for (const [key, value] of Object.entries(myModel)) {
     if (localStorage.getItem(key)) {
