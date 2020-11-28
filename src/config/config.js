@@ -17,5 +17,12 @@ const loadModelIfNotPresent = () => {
 
 // exports an empty object, then asynchronously updates the object
 export const tfModel = { model: null };
+
 loadModelIfNotPresent();
-tf.loadLayersModel("localstorage://tfModel").then((model) => (tfModel.model = model));
+tf.loadLayersModel("localstorage://tfModel").then((model) => {
+  tfModel.model = model;
+  // runs the model on a bogus tensor to cache the model
+  const bogusMatrix = new Array(28).fill(new Array(28).fill([0]));
+  const bogusTensor = tf.tensor([bogusMatrix]);
+  model.predict(bogusTensor);
+});
